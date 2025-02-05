@@ -41,7 +41,10 @@ class ItemRepository implements IItemRepository {
 	) => {
 		await MongoConnector.getMongoConnector().openDatabaseConnection();
 		const item = await ItemModel.findById(id);
-		if (item) item.name = name;
+		if (item) {
+			item.name = name;
+			await item.save();
+		}
 		await MongoConnector.getMongoConnector().closeDatabaseConnection();
 		return new Item(id, item?.name ?? '');
 	};
