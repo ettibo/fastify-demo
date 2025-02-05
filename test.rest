@@ -1,25 +1,25 @@
 ### Get All Items
-GET http://localhost:5000/items
+GET http://localhost:3000/items
 
 ### Get Specific Item
-GET http://localhost:5000/items/6787cdeabd401939ac023fcc
+GET http://localhost:3000/items/6787cdeabd401939ac023fcc
 
 ### Add an item
-POST http://localhost:5000/items
+POST http://localhost:3000/items
 Content-Type: application/json
 
 {
-    "name": "Samantha"
+    "name": "Plop"
 }
 
 ### Delete an item
-DELETE http://localhost:5000/items/678e4e65b508d7788160f457
+DELETE http://localhost:3000/items/678e4e65b508d7788160f457
 
 
 ### Update an item
-PUT http://localhost:5000/items/6787f8f636a3da553a4c6397
+PUT http://localhost:3000/items/6787cdf5bd401939ac023fce
 Content-Type: application/json
 
 {
-    "name": "Damian"
+    "name": "Item Two"
 }

@@ -1,0 +1,28 @@
+services:
+  backend:
+    image: fastify-api
+    pull_policy: never
+    container_name: fastify-api
+    build:
+      dockerfile: ./.docker/server-dockerfile
+    ports:
+      - 3000:5000
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    volumes:
+      - mongodb-data:/data/db
+    env_file:
+      - ./mongodb/.env
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    container_name: my-api-mongo-express
+    env_file:
+      - ./mongo-express/.env
+
+volumes:
+  mongodb-data:

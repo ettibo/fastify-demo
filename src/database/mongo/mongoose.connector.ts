@@ -11,7 +11,9 @@ class MongoConnector {
 	}
 
 	openDatabaseConnection = async () => {
-		await mongoose.connect('mongodb://localhost:27017/fastify-tutorial');
+		await mongoose.connect(
+			'mongodb://root:example@mongodb:27017/fastify-tutorial?authSource=admin'
+		);
 	};
 
 	closeDatabaseConnection = async () => {

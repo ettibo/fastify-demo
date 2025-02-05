@@ -8,13 +8,13 @@ import {
 	serializerCompiler,
 	validatorCompiler
 } from 'fastify-type-provider-zod';
-import ItemRepository from './src/repositories/item/item.repository.mongoose';
 
 const app = fastify({ logger: true });
 app
 	.setValidatorCompiler(validatorCompiler)
 	.setSerializerCompiler(serializerCompiler);
 const PORT = 5000;
+const HOST = '0.0.0.0';
 
 const start = async () => {
 	try {
@@ -30,7 +30,7 @@ const start = async () => {
 		});
 		await app.ready();
 		app.swagger();
-		await app.listen({ port: PORT });
+		await app.listen({ port: PORT, host: HOST });
 	} catch (error) {
 		app.log.error(error);
 		process.exit(1);
